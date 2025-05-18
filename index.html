@@ -3,162 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delicious Bites Restaurant</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <title>Delicious Bites Restaurant - A Culinary Journey</title>
+    <!-- Google Fonts (Example: Montserrat and Open Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <a href="#hero" class="nav-logo">Delicious Bites</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="#reservations" class="nav-link">Reservations</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
     <!-- Hero section -->
-    <section id="hero" class="hero">
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Welcome to Delicious Bites!</h1>
-            <p>Your go-to place for mouthwatering dishes.</p>
-            <a href="#menu">See Our Menu</a>
-            <a href="#about">About Us</a>
-            <a href="#reservations">Get Your Reservations</a>
-            <a href="#contact">Contact Us</a>
+            <p>Experience the finest culinary delights in town.</p>
+            <a href="#menu" class="cta-button">Explore Our Menu</a>
         </div>
     </section>
     
     <!-- Menu section -->
-    <section id="menu">
-        <h2 style="background-color: whitesmoke;">Our Menu</h2>
-        <ul>
-            <li class="menu-category" id="pizza-category">
-                <h3 style="background-color: whitesmoke;">Pizzas</h3>
-                <ul>
-                    <li class="menu-item" id="pizza1">
-                        <img src="pizza_margherita.jpg" alt="Margherita Pizza">
-                        <div>
-                            <h4>Classic Margherita Pizza</h4>
-                            <p>Tomato sauce, mozzarella, fresh basil - $12.99</p>
+    <section id="menu" class="menu-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Our Exquisite Menu</h2>
+            <p class="section-subtitle">Crafted with passion, served with love.</p>
+
+            <div class="menu-categories">
+                <!-- Pizzas -->
+                <div class="menu-category" id="pizza-category">
+                    <h3>Pizzas</h3>
+                    <div class="menu-grid">
+                        <div class="menu-item-card" id="pizza1">
+                            <img src="pizza_margherita.jpg" alt="Margherita Pizza" class="menu-item-image">
+                            <div class="menu-item-details">
+                                <h4>Classic Margherita</h4>
+                                <p class="menu-item-description">Tomato sauce, mozzarella, fresh basil.</p>
+                                <p class="menu-item-price">$12.99</p>
+                            </div>
                         </div>
-                    </li>
-                    <li class="menu-item" id="pizza2">
-                        <img src="pizza_pepperoni.jpg" alt="Pepperoni Delight">
-                        <div>
-                            <h4>Pepperoni Delight</h4>
-                            <p>Pepperoni, tomato sauce, mozzarella - $14.99</p>
+                        <div class="menu-item-card" id="pizza2">
+                            <img src="pizza_pepperoni.jpg" alt="Pepperoni Delight" class="menu-item-image">
+                            <div class="menu-item-details">
+                                <h4>Pepperoni Delight</h4>
+                                <p class="menu-item-description">Pepperoni, tomato sauce, mozzarella.</p>
+                                <p class="menu-item-price">$14.99</p>
+                            </div>
                         </div>
-                    </li>
-                    <li class="menu-item" id="pizza3">
-                        <img src="pizza_veggie_supreme.jpg" alt="Veggie Supreme">
-                        <div>
-                            <h4>Veggie Supreme</h4>
-                            <p>Assorted veggies, tomato sauce, mozzarella - $13.99</p>
+                        <div class="menu-item-card" id="pizza3">
+                            <img src="pizza_veggie_supreme.jpg" alt="Veggie Supreme" class="menu-item-image">
+                            <div class="menu-item-details">
+                                <h4>Veggie Supreme</h4>
+                                <p class="menu-item-description">Assorted veggies, tomato sauce, mozzarella.</p>
+                                <p class="menu-item-price">$13.99</p>
+                            </div>
                         </div>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-category" id="pasta-category">
-                <h3 style="background-color: whitesmoke;">Pasta</h3>
-                <ul>
-                    <li class="menu-item" id="pasta1">
-                        <img src="pasta_carbonara.jpg" alt="Spaghetti Carbonara">
-                        <div>
-                            <h4>Spaghetti Carbonara</h4>
-                            <p>Creamy egg and pancetta sauce - $14.49</p>
+                    </div>
+                </div>
+
+                <!-- Pasta -->
+                <div class="menu-category" id="pasta-category">
+                    <h3>Pasta</h3>
+                    <div class="menu-grid">
+                        <div class="menu-item-card" id="pasta1">
+                            <img src="pasta_carbonara.jpg" alt="Spaghetti Carbonara" class="menu-item-image">
+                            <div class="menu-item-details">
+                                <h4>Spaghetti Carbonara</h4>
+                                <p class="menu-item-description">Creamy egg and pancetta sauce.</p>
+                                <p class="menu-item-price">$14.49</p>
+                            </div>
                         </div>
-                    </li>
-                    <li class="menu-item" id="pasta2">
-                        <img src="pasta_alfredo.jpg" alt="Chicken Alfredo">
-                        <div>
-                            <h4>Chicken Alfredo</h4>
-                            <p>Grilled chicken, Alfredo sauce, fettuccine - $16.99</p>
+                        <div class="menu-item-card" id="pasta2">
+                            <img src="pasta_alfredo.jpg" alt="Chicken Alfredo" class="menu-item-image">
+                            <div class="menu-item-details">
+                                <h4>Chicken Alfredo</h4>
+                                <p class="menu-item-description">Grilled chicken, Alfredo sauce, fettuccine.</p>
+                                <p class="menu-item-price">$16.99</p>
+                            </div>
                         </div>
-                    </li>
-                    <li class="menu-item" id="pasta3">
-                        <img src="pasta_vegetarian_lasagna.jpg" alt="Vegetarian Lasagna">
-                        <div>
-                            <h4>Vegetarian Lasagna</h4>
-                            <p>Layers of pasta, ricotta, veggies - $15.99</p>
+                        <div class="menu-item-card" id="pasta3">
+                            <img src="pasta_vegetarian_lasagna.jpg" alt="Vegetarian Lasagna" class="menu-item-image">
+                            <div class="menu-item-details">
+                                <h4>Vegetarian Lasagna</h4>
+                                <p class="menu-item-description">Layers of pasta, ricotta, veggies.</p>
+                                <p class="menu-item-price">$15.99</p>
+                            </div>
                         </div>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-category" id="main-category">
-                <h3 style="background-color: whitesmoke;">Main Courses</h3>
-                <ul>
-                    <li class="menu-item" id="main1">
-                        <img src="main_grilled_salmon.jpg" alt="Grilled Salmon">
-                        <div>
-                            <h4>Grilled Salmon</h4>
-                            <p>Fresh grilled salmon, lemon butter sauce - $18.99</p>
+                    </div>
+                </div>
+
+                <!-- Main Courses -->
+                <div class="menu-category" id="main-category">
+                    <h3>Main Courses</h3>
+                    <div class="menu-grid">
+                         <div class="menu-item-card" id="main1">
+                            <img src="main_grilled_salmon.jpg" alt="Grilled Salmon" class="menu-item-image">
+                            <div class="menu-item-details">
+                                <h4>Grilled Salmon</h4>
+                                <p class="menu-item-description">Fresh grilled salmon, lemon butter sauce.</p>
+                                <p class="menu-item-price">$18.99</p>
+                            </div>
                         </div>
-                    </li>
-                    <li class="menu-item" id="main2">
-                        <img src="main_beef_tenderloin.jpg" alt="Beef Tenderloin Steak">
-                        <div>
-                            <h4>Beef Tenderloin Steak</h4>
-                            <p>Char-grilled to perfection - $20.99</p>
+                        <div class="menu-item-card" id="main2">
+                            <img src="main_beef_tenderloin.jpg" alt="Beef Tenderloin Steak" class="menu-item-image">
+                            <div class="menu-item-details">
+                                <h4>Beef Tenderloin Steak</h4>
+                                <p class="menu-item-description">Char-grilled to perfection.</p>
+                                <p class="menu-item-price">$20.99</p>
+                            </div>
                         </div>
-                    </li>
-                    <li class="menu-item" id="main3">
-                        <img src="main_eggplant_parmesan.jpg" alt="Eggplant Parmesan">
-                        <div>
-                            <h4>Eggplant Parmesan</h4>
-                            <p>Breaded and baked eggplant, marinara, mozzarella - $13.99</p>
+                        <div class="menu-item-card" id="main3">
+                            <img src="main_eggplant_parmesan.jpg" alt="Eggplant Parmesan" class="menu-item-image">
+                            <div class="menu-item-details">
+                                <h4>Eggplant Parmesan</h4>
+                                <p class="menu-item-description">Breaded and baked eggplant, marinara, mozzarella.</p>
+                                <p class="menu-item-price">$13.99</p>
+                            </div>
                         </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- About section -->
-    <section id="about">
-        <h2>About Us</h2>
-        <div class="about-content">
-            <div class="owner-images">
-                <img src="owner1.jpg" alt="Owner 1">
-                <img src="owner2.jpg" alt="Owner 2">
-                <img src="owner3.jpg" alt="Owner 3">
-            </div>
-            <div class="owner-description">
-                <p>Delicious Bites has been serving the community since 1995. Our passion for food drives us to create memorable dining experiences for our guests.</p>
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-content-wrapper">
+                <div class="about-text">
+                    <p>Delicious Bites has been a cornerstone of the community since 1995. Our passion for authentic flavors and heartfelt hospitality drives us to create memorable dining experiences for every guest. We believe in using the freshest ingredients to craft dishes that tell a story of tradition and innovation.</p>
+                    <p>Meet the faces behind our culinary magic:</p>
+                </div>
+                <div class="owner-gallery">
+                    <div class="owner-profile">
+                        <img src="owner1.jpg" alt="Owner 1 - Chef Giovanni">
+                        <p>Chef Giovanni - Founder</p>
+                    </div>
+                    <div class="owner-profile">
+                        <img src="owner2.jpg" alt="Owner 2 - Maria Rossi">
+                        <p>Maria Rossi - Manager</p>
+                    </div>
+                    <div class="owner-profile">
+                        <img src="owner3.jpg" alt="Owner 3 - Chef Luigi">
+                        <p>Chef Luigi - Head Chef</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Reservations section -->
-    <section id="reservations">
-        <h2>Make a Reservation</h2>
-        <p>Book a table for your special occasion or casual dining.</p>
-        <form id="reservation-form" onsubmit="showThankYou()">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
-
-            <label for="time">Time:</label>
-            <input type="time" id="time" name="time" required>
-
-            <button type="submit">Submit Reservation</button>
-        </form>
+    <section id="reservations" class="reservations-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Make a Reservation</h2>
+            <p class="section-subtitle">Book your table and savor the moment.</p>
+            <form id="reservation-form" class="reservation-form-styled" onsubmit="showThankYou(); return false;"> <!-- Added return false to prevent actual form submission for demo -->
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="E.g., John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="E.g., john.doe@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="E.g., (555) 123-4567" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests:</label>
+                    <input type="number" id="guests" name="guests" min="1" placeholder="E.g., 4" required>
+                </div>
+                <div class="form-group">
+                    <label for="requests">Special Requests (Optional):</label>
+                    <textarea id="requests" name="requests" rows="3" placeholder="E.g., Birthday celebration, dietary restrictions"></textarea>
+                </div>
+                <button type="submit" class="cta-button form-submit-button">Book My Table</button>
+            </form>
+        </div>
     </section>
 
     <!-- Contact section -->
-    <section id="contact">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2>Contact Us</h2>
-                <p>We'd love to hear from you!</p>
-                <p>Visit us at:</p>
-                <address>DSCE</address>
-                <p>Email us at: <a href="mailto:info@deliciousbites.com">info@deliciousbites.com</a></p>
-                <p>Call us at:+91-9123456780</p>
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">We'd love to hear from you!</p>
+            <div class="contact-wrapper">
+                <div class="contact-details">
+                    <h3>Visit Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> DSCE, Main Street, Anytown, USA</p>
+                    <h3>Call Us</h3>
+                    <p><i class="fas fa-phone"></i> +91-9123456780</p>
+                    <h3>Email Us</h3>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@deliciousbites.com">info@deliciousbites.com</a></p>
+                </div>
+                <div class="contact-socials">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="social-media-links">
-                <h3>Connect with Us</h3>
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
-                <a href="#" class="fa fa-instagram"></a>
+             <!-- Optional: Map Embed -->
+            <div class="map-container">
+                 <!-- Replace with your actual map embed code -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124459.60611808338!2d77.49899136817798!3d12.89399030516325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3e1617354411%3A0x5853782f15917644!2sDayananda%20Sagar%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1701502015039!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© <span id="currentYear"></span> Delicious Bites Restaurant. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: red;"></i> by a Food Lover</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
