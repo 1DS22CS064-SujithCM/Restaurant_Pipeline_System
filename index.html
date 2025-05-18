@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Bites Restaurant</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+    <!-- Hero section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Delicious Bites!</h1>
+            <p>Your go-to place for mouthwatering dishes.</p>
+            <a href="#menu">See Our Menu</a>
+            <a href="#about">About Us</a>
+            <a href="#reservations">Get Your Reservations</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </section>
+    
+    <!-- Menu section -->
+    <section id="menu">
+        <h2 style="background-color: whitesmoke;">Our Menu</h2>
+        <ul>
+            <li class="menu-category" id="pizza-category">
+                <h3 style="background-color: whitesmoke;">Pizzas</h3>
+                <ul>
+                    <li class="menu-item" id="pizza1">
+                        <img src="pizza_margherita.jpg" alt="Margherita Pizza">
+                        <div>
+                            <h4>Classic Margherita Pizza</h4>
+                            <p>Tomato sauce, mozzarella, fresh basil - $12.99</p>
+                        </div>
+                    </li>
+                    <li class="menu-item" id="pizza2">
+                        <img src="pizza_pepperoni.jpg" alt="Pepperoni Delight">
+                        <div>
+                            <h4>Pepperoni Delight</h4>
+                            <p>Pepperoni, tomato sauce, mozzarella - $14.99</p>
+                        </div>
+                    </li>
+                    <li class="menu-item" id="pizza3">
+                        <img src="pizza_veggie_supreme.jpg" alt="Veggie Supreme">
+                        <div>
+                            <h4>Veggie Supreme</h4>
+                            <p>Assorted veggies, tomato sauce, mozzarella - $13.99</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-category" id="pasta-category">
+                <h3 style="background-color: whitesmoke;">Pasta</h3>
+                <ul>
+                    <li class="menu-item" id="pasta1">
+                        <img src="pasta_carbonara.jpg" alt="Spaghetti Carbonara">
+                        <div>
+                            <h4>Spaghetti Carbonara</h4>
+                            <p>Creamy egg and pancetta sauce - $14.49</p>
+                        </div>
+                    </li>
+                    <li class="menu-item" id="pasta2">
+                        <img src="pasta_alfredo.jpg" alt="Chicken Alfredo">
+                        <div>
+                            <h4>Chicken Alfredo</h4>
+                            <p>Grilled chicken, Alfredo sauce, fettuccine - $16.99</p>
+                        </div>
+                    </li>
+                    <li class="menu-item" id="pasta3">
+                        <img src="pasta_vegetarian_lasagna.jpg" alt="Vegetarian Lasagna">
+                        <div>
+                            <h4>Vegetarian Lasagna</h4>
+                            <p>Layers of pasta, ricotta, veggies - $15.99</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-category" id="main-category">
+                <h3 style="background-color: whitesmoke;">Main Courses</h3>
+                <ul>
+                    <li class="menu-item" id="main1">
+                        <img src="main_grilled_salmon.jpg" alt="Grilled Salmon">
+                        <div>
+                            <h4>Grilled Salmon</h4>
+                            <p>Fresh grilled salmon, lemon butter sauce - $18.99</p>
+                        </div>
+                    </li>
+                    <li class="menu-item" id="main2">
+                        <img src="main_beef_tenderloin.jpg" alt="Beef Tenderloin Steak">
+                        <div>
+                            <h4>Beef Tenderloin Steak</h4>
+                            <p>Char-grilled to perfection - $20.99</p>
+                        </div>
+                    </li>
+                    <li class="menu-item" id="main3">
+                        <img src="main_eggplant_parmesan.jpg" alt="Eggplant Parmesan">
+                        <div>
+                            <h4>Eggplant Parmesan</h4>
+                            <p>Breaded and baked eggplant, marinara, mozzarella - $13.99</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!-- About section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="owner-images">
+                <img src="owner1.jpg" alt="Owner 1">
+                <img src="owner2.jpg" alt="Owner 2">
+                <img src="owner3.jpg" alt="Owner 3">
+            </div>
+            <div class="owner-description">
+                <p>Delicious Bites has been serving the community since 1995. Our passion for food drives us to create memorable dining experiences for our guests.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservations section -->
+    <section id="reservations">
+        <h2>Make a Reservation</h2>
+        <p>Book a table for your special occasion or casual dining.</p>
+        <form id="reservation-form" onsubmit="showThankYou()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="submit">Submit Reservation</button>
+        </form>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you!</p>
+                <p>Visit us at:</p>
+                <address>DSCE</address>
+                <p>Email us at: <a href="mailto:info@deliciousbites.com">info@deliciousbites.com</a></p>
+                <p>Call us at:+91-9123456780</p>
+            </div>
+            <div class="social-media-links">
+                <h3>Connect with Us</h3>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-instagram"></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
