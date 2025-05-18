@@ -14,7 +14,7 @@ pipeline {
         //    and that user has access to the default kubeconfig location (%USERPROFILE%\.kube\config),
         //    you might not need explicit withKubeConfig for local Docker Desktop k8s.
         //    However, using withKubeConfig is more robust and explicit.
-        // KUBE_CONFIG_CREDENTIALS_ID = 'your-kubeconfig-secret-file-id' // ID of your Kubernetes config (Secret file type) in Jenkins
+        KUBE_CONFIG_CREDENTIALS_ID = 'your-kubeconfig-secret-file-id' // ID of your Kubernetes config (Secret file type) in Jenkins
     }
 
     stages {
@@ -44,14 +44,14 @@ pipeline {
                 script {
                     // Ensure Docker credentials (e.g., for Docker Hub) are configured in Jenkins.
                     // The ID 'docker-hub-credentials' is an example.
-                    // docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
-                    //    docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").push()
-                    // }
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
+                       docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").push()
+                    }
 
                     // Or using bat for direct docker push (less secure if credentials are not handled by Jenkins plugin)
                     // You would need to 'docker login' on the agent machine beforehand or handle login in the script.
                     // For a mini-project and local testing, if you've already logged in via Docker Desktop, this might work.
-                    bat "docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
+                    // bat "docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
                 }
             }
         }
