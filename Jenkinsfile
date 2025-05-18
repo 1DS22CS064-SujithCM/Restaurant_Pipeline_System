@@ -2,9 +2,11 @@ pipeline {
     // agent any // This is fine if the Jenkins master or a pre-configured agent has everything.
     // For more control, you might define a Windows agent label:
     agent { label 'windows-agent' } // Make sure you have an agent with this label configured in Jenkins
-
+    options {
+        skipDefaultCheckout true // Add this line
+    }
     environment {
-        DOCKER_IMAGE_NAME = "your-dockerhub-username/simple-website" // Change this
+        DOCKER_IMAGE_NAME = "bhuvanmdev/restuarant-website" // Change this
         DOCKER_IMAGE_TAG = "latest" // Or use something dynamic like "${env.BUILD_NUMBER}"
         // For Kubeconfig:
         // 1. Store your kubeconfig as a 'Secret file' in Jenkins credentials.
@@ -12,7 +14,7 @@ pipeline {
         //    and that user has access to the default kubeconfig location (%USERPROFILE%\.kube\config),
         //    you might not need explicit withKubeConfig for local Docker Desktop k8s.
         //    However, using withKubeConfig is more robust and explicit.
-        KUBE_CONFIG_CREDENTIALS_ID = 'your-kubeconfig-secret-file-id' // ID of your Kubernetes config (Secret file type) in Jenkins
+        // KUBE_CONFIG_CREDENTIALS_ID = 'your-kubeconfig-secret-file-id' // ID of your Kubernetes config (Secret file type) in Jenkins
     }
 
     stages {
