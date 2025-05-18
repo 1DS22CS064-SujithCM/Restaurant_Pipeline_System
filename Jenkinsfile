@@ -44,14 +44,14 @@ pipeline {
                 script {
                     // Ensure Docker credentials (e.g., for Docker Hub) are configured in Jenkins.
                     // The ID 'docker-hub-credentials' is an example.
-                    docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
-                       docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").push()
-                    }
+                    // docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
+                    //    docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").push()
+                    // }
 
                     // Or using bat for direct docker push (less secure if credentials are not handled by Jenkins plugin)
                     // You would need to 'docker login' on the agent machine beforehand or handle login in the script.
                     // For a mini-project and local testing, if you've already logged in via Docker Desktop, this might work.
-                    // bat "docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
+                    bat "docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
                 }
             }
         }
@@ -69,7 +69,7 @@ pipeline {
 
                     // Optional: Force rollout to pick up the new image if imagePullPolicy is not 'Always'
                     // or if the tag hasn't changed but the image content has (e.g. 'latest').
-                    bat "kubectl rollout restart deployment simple-website-deployment"
+                    bat "kubectl rollout restart deployment restuarent-website-deployment"
                 }
                 // Alternative if kubectl is already configured globally and accessible by Jenkins user
                 // (e.g., Docker Desktop Kubernetes which sets up %USERPROFILE%\.kube\config):
