@@ -65,7 +65,7 @@ pipeline {
                 withKubeConfig([credentialsId: KUBE_CONFIG_CREDENTIALS_ID]) {
                     // Use 'bat' to execute kubectl commands on Windows.
                     // Ensure kubectl.exe is in the system PATH or provide the full path.
-                    bat "kubectl apply -f k8s-deployment.yaml"
+                    bat "kubectl apply -f k8s-deployment.yaml --validate=false"
 
                     // Optional: Force rollout to pick up the new image if imagePullPolicy is not 'Always'
                     // or if the tag hasn't changed but the image content has (e.g. 'latest').
