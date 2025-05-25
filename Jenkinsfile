@@ -53,15 +53,15 @@ pipeline {
                 withKubeConfig([credentialsId: KUBE_CONFIG_CREDENTIALS_ID]) {
                     // Use 'bat' to execute kubectl commands on Windows.
                     // Ensure kubectl.exe is in the system PATH or provide the full path.
-                    bat "kubectl apply -f k8s-deployment.yaml"
+                    bat "kubectl apply -f k8s-deployment.yaml --namespace=default"
 
-                    bat "kubectl apply -f k8s-service.yaml"
+                    bat "kubectl apply -f k8s-service.yaml --namespace=default"
 
                     // Optional: Force rollout to pick up the new image if imagePullPolicy is not 'Always'
                     // or if the tag hasn't changed but the image content has (e.g. 'latest').
-                    bat "kubectl rollout restart deployment restuarent-website-deployment"
+                    bat "kubectl rollout restart deployment restuarent-website-deployment --namespace=default"
 
-                    bat "kubectl get svc restuarent-website-service"
+                    bat "kubectl get svc restuarent-website-service --namespace=default"
                 }
 
             }
