@@ -5,7 +5,7 @@ pipeline {
         skipDefaultCheckout true // Add this line
     }
     environment {
-        DOCKER_IMAGE_NAME = "bhuvanmdev/restuarant-website" // Change this
+        DOCKER_IMAGE_NAME = "bhuvanmdev/restuarent-website" // Change this
         DOCKER_IMAGE_TAG = "latest" // Or use something dynamic like "${env.BUILD_NUMBER}"
         // For Kubeconfig:
         // 1. Store your kubeconfig as a 'Secret file' in Jenkins credentials.
