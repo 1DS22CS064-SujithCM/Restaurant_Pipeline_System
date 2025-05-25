@@ -7,12 +7,6 @@ pipeline {
     environment {
         DOCKER_IMAGE_NAME = "bhuvanmdev/restuarent-website" // Change this
         DOCKER_IMAGE_TAG = "latest" // Or use something dynamic like "${env.BUILD_NUMBER}"
-        // For Kubeconfig:
-        // 1. Store your kubeconfig as a 'Secret file' in Jenkins credentials.
-        // 2. Or, if kubectl is already configured system-wide for the user Jenkins runs as,
-        //    and that user has access to the default kubeconfig location (%USERPROFILE%\.kube\config),
-        //    you might not need explicit withKubeConfig for local Docker Desktop k8s.
-        //    However, using withKubeConfig is more robust and explicit.
         KUBE_CONFIG_CREDENTIALS_ID = 'your-kubeconfig-secret-file-id' // ID of your Kubernetes config (Secret file type) in Jenkins
     }
 
@@ -27,18 +21,13 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Docker commands are generally the same on Windows when using Docker Desktop for Linux containers.
-                    // The docker.build() step from the Docker Pipeline plugin handles this.
                     docker.build("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}", ".")
                 }
             }
         }
 
         stage('Push Docker Image (Optional)') {
-            // when {
-            //     // expression { return true } // Uncomment and adapt if you always want to push
-            //     branch 'main'
-            // }
+            
             steps {
                 script {
                     
@@ -51,17 +40,13 @@ pipeline {
             steps {
 
                 withKubeConfig([credentialsId: KUBE_CONFIG_CREDENTIALS_ID]) {
-                    // Use 'bat' to execute kubectl commands on Windows.
-                    // Ensure kubectl.exe is in the system PATH or provide the full path.
+
                     bat "kubectl apply -f k8s-deployment.yaml --namespace=default"
 
                     bat "kubectl apply -f k8s-service.yaml --namespace=default"
 
-                    // Optional: Force rollout to pick up the new image if imagePullPolicy is not 'Always'
-                    // or if the tag hasn't changed but the image content has (e.g. 'latest').
                     bat "kubectl rollout restart deployment restuarent-website-deployment --namespace=default"
-
-                    bat "kubectl get svc restuarent-website-service --namespace=default"
+    
                 }
 
             }
