@@ -41,41 +41,29 @@ pipeline {
             // }
             steps {
                 script {
-                    // Ensure Docker credentials (e.g., for Docker Hub) are configured in Jenkins.
-                    // The ID 'docker-hub-credentials' is an example.
-                    // docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
-                    //    docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").push()
-                    // }
-
-                    // Or using bat for direct docker push (less secure if credentials are not handled by Jenkins plugin)
-                    // You would need to 'docker login' on the agent machine beforehand or handle login in the script.
-                    // For a mini-project and local testing, if you've already logged in via Docker Desktop, this might work.
-                    bat "docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
+                    
+                    bat "docker image push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
                 }
             }
         }
 
         stage('Deploy to Kubernetes') {
             steps {
-                // Using withKubeConfig is the recommended way to handle Kubernetes configuration.
-                // It temporarily sets up the KUBECONFIG environment variable for the enclosed commands.
-                // Make sure 'your-kubeconfig-secret-file-id' in Jenkins Credentials is of type 'Secret file'
-                // and you've uploaded your kubeconfig file there.
+
                 withKubeConfig([credentialsId: KUBE_CONFIG_CREDENTIALS_ID]) {
                     // Use 'bat' to execute kubectl commands on Windows.
                     // Ensure kubectl.exe is in the system PATH or provide the full path.
                     bat "kubectl apply -f k8s-deployment.yaml"
 
+                    bat "kubectl apply -f k8s-service.yaml"
+
                     // Optional: Force rollout to pick up the new image if imagePullPolicy is not 'Always'
                     // or if the tag hasn't changed but the image content has (e.g. 'latest').
                     bat "kubectl rollout restart deployment restuarent-website-deployment"
+
+                    bat "kubectl get svc restuarent-website-service"
                 }
-                // Alternative if kubectl is already configured globally and accessible by Jenkins user
-                // (e.g., Docker Desktop Kubernetes which sets up %USERPROFILE%\.kube\config):
-                // script {
-                //    bat "kubectl apply -f k8s-deployment.yaml"
-                //    bat "kubectl rollout restart deployment simple-website-deployment"
-                // }
+
             }
         }
     }
